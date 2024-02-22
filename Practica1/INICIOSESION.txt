@@ -1,0 +1,63 @@
+ SqlConnection conexion = new SqlConnection("server=ISAC\\SQLEXPRESS;database=Titan 2; integrated security=true");
+ int intentosFallidos = 0;
+ public void logear(string usuario, string password)
+ {
+     try
+
+     {
+         conexion.Open();
+         SqlCommand coman = new SqlCommand("SELECT Usuario, Nivel FROM login1 WHERE Usuario = @usuario AND Clave = @clave", conexion);
+         coman.Parameters.AddWithValue("usuario", usuario);
+         coman.Parameters.AddWithValue("clave", password);
+         SqlDataAdapter sda = new SqlDataAdapter(coman);
+         DataTable dt = new DataTable();
+         sda.Fill(dt);
+
+         if (dt.Rows.Count == 1)
+         {
+             this.Hide();
+             if (dt.Rows[0][1].ToString() == "1")
+             {
+                 new Form1(dt.Rows[0][1].ToString()).Show();
+             }
+             else if (dt.Rows[0][1].ToString() == "2")
+             {
+                 new Nivel2(dt.Rows[0][1].ToString()).Show();
+             }
+             else if (dt.Rows[0][1].ToString() == "3")
+             {
+                 new Nivel3(dt.Rows[0][1].ToString()).Show();
+             }
+
+         }
+         else
+         {
+             MessageBox.Show("El usuario o la contraseña que ha ingresado no son correctas.");
+             intentosFallidos++;
+             textBox1.Clear();
+             textBox2.Clear();
+             if (intentosFallidos == 3)
+             {
+                 MessageBox.Show("Se alcanzó el máximo de número de intentos permitidos");
+                 Application.Exit();
+             }
+             
+         }
+        }
+     catch (Exception e)
+     {
+         MessageBox.Show(e.Message);
+     
+     }
+
+     finally
+     {
+         conexion.Close();
+     }
+ }
+
+
+
+BOTON INICIAR SESION
+
+logear(this.textBox1.Text, this.textBox2.Text);
