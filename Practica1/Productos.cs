@@ -89,7 +89,7 @@ namespace Practica1
                     productId = Convert.ToInt32(productIDTextBox.Text),
                     productName = productNameTextBox.Text,
                     //supplierId = Convert.ToInt32(supplierIDTextBox.Text),
-                    categoryId = Convert.ToInt32(categoryIDTextBox.Text),
+                    //categoryId = Convert.ToInt32(categoryIDTextBox.Text),
                     //quantityPerUnit = Convert.ToDouble(quantityPerUnitTextBox.Text),
                     //unitPrice = Convert.ToDouble(unitPriceTextBox.Text),
                     //unitsInStock = Convert.ToDouble(unitsInStockTextBox.Text),
