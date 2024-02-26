@@ -81,7 +81,7 @@ namespace Practica1
             try
             {
                 conexion.Open();
-                string consulta = "insert into Products values('" + productNameTextBox.Text + "', " + supplierIDTextBox.Text + ", " + categoryIDTextBox.Text + ", '" + quantityPerUnitTextBox.Text + "', " + unitPriceTextBox.Text + ", " + unitsInStockTextBox.Text + ", " + unitsOnOrderTextBox.Text + ", " + reorderLevelTextBox.Text + ")";
+                string consulta = "insert into Products values('" + productNameTextBox.Text + "', " + supplierIDTextBox + ", " + categoryIDTextBox.Text + ", '" + quantityPerUnitTextBox.Text + "', " + unitPriceTextBox.Text + ", " + unitsInStockTextBox.Text + ", " + unitsOnOrderTextBox.Text + ", " + reorderLevelTextBox.Text + ")";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
 
                 var productos = new Productos01()
