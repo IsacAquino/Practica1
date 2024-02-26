@@ -143,7 +143,7 @@ namespace Practica1
             try
             {
                 conexion.Open();
-                string consulta = "update Products set Product Name = '" + productNameTextBox.Text + "', SupplierID = " + supplierIDTextBox.Text + ", Category ID = " + categoryIDTextBox.Text + ", Quantity Per Unit = '" + quantityPerUnitTextBox.Text + "', Unit Price = " + unitPriceTextBox.Text + ",  Units In Stock =  " + unitsInStockTextBox.Text + ", Units On Order = " + unitsOnOrderTextBox.Text + ", Reorder Level = " + reorderLevelTextBox.Text + " WHERE Product ID = " + productIDTextBox.Text + "";
+                string consulta = "update Products (ProductName)set ()Product Name = '" + productNameTextBox.Text + "', SupplierID = " + supplierIDTextBox.Text + ", Category ID = " + categoryIDTextBox.Text + ", Quantity Per Unit = '" + quantityPerUnitTextBox.Text + "', Unit Price = " + unitPriceTextBox.Text + ",  Units In Stock =  " + unitsInStockTextBox.Text + ", Units On Order = " + unitsOnOrderTextBox.Text + ", Reorder Level = " + reorderLevelTextBox.Text + " WHERE Product ID = " + productIDTextBox.Text + "";
                 SqlCommand comando = new SqlCommand(consulta, conexion);
 
                 var productos = new Productos01()
